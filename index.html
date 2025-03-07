@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance - Handcrafted Fashion Boutique</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        /* Color Palette */
+        :root {
+            --primary: #d4a5a5;
+            --primary-dark: #b68c8c;
+            --secondary: #f9e9e9;
+            --accent: #a87575;
+            --text: #5e3a3a;
+            --light-text: #8c5e5e;
+            --background: #fff8f8;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --dark-gray: #555555;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background-color: var(--secondary);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Featured Section */
+        .featured {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 350px;
+            background-color: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .product-cta {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--secondary);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--secondary);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Mobile menu */
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: var(--white);
+            padding: 80px 30px 30px;
+            z-index: 101;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-mobile.active {
+            right: 0;
+        }
+
+        .nav-mobile ul {
+            list-style: none;
+        }
+
+        .nav-mobile li {
+            margin-bottom: 20px;
+        }
+
+        .nav-mobile a {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="close-menu" id="close-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured">Collection</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">Elegance<span>.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#featured">Collection</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Handcrafted Dresses<br>Made with Love</h1>
+            <p>Unique, custom-made dresses designed to make you feel confident and beautiful. Each piece is carefully crafted with attention to detail and quality.</p>
+            <div class="hero-buttons">
+                <a href="#featured" class="btn">View Collection</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <h2 class="section-title"><span>Featured Collection</span></h2>
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://pbs.twimg.com/media/GlZg03PXIAAUovY?format=jpg&name=small" alt="Floral Summer Dress">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Floral Summer Dress</h3>
+                        <div class="product-price">$89.99</div>
+                        <p class="product-description">Light and breezy floral pattern summer dress, perfect for warm days and special occasions.</p>
+                        <div class="product-cta">
+                            <a href="https://wa.me/+233552911962?text=I'm%20interested%20in%20the%20Floral%20Summer%20Dress" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://pbs.twimg.com/media/GlZgWZEWIAEKoOL?format=jpg&name=small" alt="Elegant Evening Gown">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Elegant Evening Gown</h3>
+                        <div class="product-price">$149.99</div>
+                        <p class="product-description">Sophisticated evening gown designed for formal events and celebrations. Available in custom sizes.</p>
+                        <div class="product-cta">
+                            <a href="https://wa.me/+233552911962?text=I'm%20interested%20in%20the%20Elegant%20Evening%20Gown" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://pbs.twimg.com/media/GlZf_qzXoAA_4fB?format=jpg&name=small" alt="Casual Maxi Dress">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Casual Maxi Dress</h3>
+                        <div class="product-price">$79.99</div>
+                        <p class="product-description">Comfortable yet stylish maxi dress that can be dressed up or down. Perfect for daily wear.</p>
+                        <div class="product-cta">
+                            <a href="https://wa.me/+233552911962?text=I'm%20interested%20in%20the%20Casual%20Maxi%20Dress" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://pbs.twimg.com/media/GlZfrWgXoAAgmAj?format=jpg&name=small" alt="Vintage-Inspired Dress">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vintage-Inspired Dress</h3>
+                        <div class="product-price">$99.99</div>
+                        <p class="product-description">Classic design with a modern twist. This vintage-inspired dress brings timeless elegance to your wardrobe.</p>
+                        <div class="product-cta">
+                            <a href="https://wa.me/+233552911962?text=I'm%20interested%20in%20the%20Vintage-Inspired%20Dress" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://pbs.twimg.com/media/GlZlu7cWkAAoAhh?format=jpg&name=900x900" alt="Business Casual Outfit">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Business Casual Outfit</h3>
+                        <div class="product-price">$119.99</div>
+                        <p class="product-description">Professional yet comfortable outfit perfect for office wear and business meetings.</p>
+                        <div class="product-cta">
+                            <a href="https://wa.me/+233552911962?text=I'm%20interested%20in%20the%20Business%20Casual%20Outfit" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://pbs.twimg.com/media/GlZlw_jWgAAjoyQ?format=jpg&name=900x900" alt="Bohemian Summer Dress">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bohemian Summer Dress</h3>
+                        <div class="product-price">$85.99</div>
+                        <p class="product-description">Free-spirited bohemian design with unique patterns and comfortable fit for summer adventures.</p>
+                        <div class="product-cta">
+                            <a href="https://wa.me/+233552911962?text=I'm%20interested%20in%20the%20Bohemian%20Summer%20Dress" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="About My Fashion Studio">
+                </div>
+                <div class="about-text">
+                    <h2>About My Fashion Journey</h2>
+                    <p>Welcome to Elegance, where passion meets craftsmanship. I'm Sarah, a fashion designer who turned my love for creating beautiful clothing into a business.</p>
+                    <p>Each dress is personally designed and handcrafted by me with meticulous attention to detail. I believe in sustainable fashion and use high-quality fabrics that not only look beautiful but also stand the test of time.</p>
+                    <p>My journey began five years ago when I started making dresses for friends and family. Their encouragement and the joy I found in creating unique pieces led me to establish this boutique, where I can share my designs with a wider audience.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title"><span>Customer Love</span></h2>
+            <div class="testimonial-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I ordered a custom dress for my daughter's graduation and was amazed by the quality. The attention to detail and perfect fit made it a special day even more memorable."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://pbs.twimg.com/media/GlXpZQTXMAEXb-l?format=jpg&name=small" alt="Customer">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Jessica T.</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The evening gown I purchased exceeded my expectations. The fabric was luxurious, and the design was unique. I received so many compliments throughout the night!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://pbs.twimg.com/media/GlUYLziWsAAcxg_?format=jpg&name=small" alt="Customer">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Michelle K.</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I love how each dress is uniquely designed. The casual maxi dress I bought is now my go-to for both everyday wear and casual outings. So versatile and comfortable!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://pbs.twimg.com/media/GlUYx5FXIAE4JBB?format=jpg&name=small" alt="Customer">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Sophia R.</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title"><span>Get In Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Let's Connect</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>123 Fashion Street, Design District, City</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@eleganceboutique.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (234) 567-8900</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/+233552911962" class="btn btn-whatsapp" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" id="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea class="form-control" id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+233552911962" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Elegance<span>.</span></div>
+                    <p>Handcrafted fashion designed to make you feel special. Each piece tells a story of dedication and passion for beautiful clothing.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-container">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#featured">Collection</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-container">
+                    <h3 class="footer-heading">Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3 class="footer-heading">Newsletter</h3>
+                    <p>Subscribe to receive updates on new collections and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="form-control">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elegance Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-mobile').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('nav-mobile').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.getElementById('nav-mobile').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Mobile menu links - close menu after click
+        const mobileLinks = document.querySelectorAll('#nav-mobile a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('nav-mobile').classList.remove('active');
+                document.getElementById('overlay').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Simple form validation and submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // You would typically send the form data to a server here
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
